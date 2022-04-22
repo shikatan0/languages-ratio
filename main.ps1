@@ -1,7 +1,9 @@
+param($token)
+
 $jsonName = 'languages-ratio.json'
 $languageByteMap = @{}
 $sumByte = , 0
-$headers = @{'Bearer' = '${{ secrets.GITHUB_TOKEN }}' }
+$headers = @{'Bearer' = $token }
 
 Write-Host $headers.Bearer
 
