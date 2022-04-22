@@ -8,7 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: ./main.ps1 ${{ secrets.GITHUB_TOKEN }}
+      - env: GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: ./main.ps1 ${GITHUB_TOKEN}
         shell: pwsh
       - run: |
           git config --global user.name "${{ github.actor }}"
