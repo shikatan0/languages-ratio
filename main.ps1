@@ -5,7 +5,7 @@ $languageByteMap = @{}
 $sumByte = , 0
 $headers = @{'Bearer' = $token }
 
-Write-Host $headers.Bearer
+Write-Host $token
 
 (Invoke-RestMethod -Uri https://api.github.com/users/shikatan0/repos -Headers $headers)
 | & {
