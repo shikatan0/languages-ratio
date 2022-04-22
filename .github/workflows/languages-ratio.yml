@@ -11,12 +11,8 @@ jobs:
       - run: |
           $jsonName = 'languages-ratio.json'
           $languageByteMap = @{}
-          $sumByte = , 0
+          $sumByte = ,0
           $headers = @{'Bearer' = '${{ secrets.GITHUB_TOKEN }}'}
-
-          Write-Host $headers.Bearer
-          Write-Host $headers.Bearer.GetType().FullName
-
           (Invoke-RestMethod -Uri https://api.github.com/users/shikatan0/repos -Headers $headers)
           | & {
             process {
