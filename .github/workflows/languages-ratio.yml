@@ -1,0 +1,16 @@
+name: languages-ratio
+on:
+  workflow_dispatch:
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: ./main.ps1
+        shell: pwsh
+      - run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git add result10.json
+          git commit -m u
+          git push origin main
