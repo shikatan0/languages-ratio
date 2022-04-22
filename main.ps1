@@ -6,6 +6,7 @@ $sumByte = , 0
 $headers = @{'Bearer' = $token }
 
 Write-Host $token
+Write-Host $token.GetType().FullName
 
 (Invoke-RestMethod -Uri https://api.github.com/users/shikatan0/repos -Headers $headers)
 | & {
