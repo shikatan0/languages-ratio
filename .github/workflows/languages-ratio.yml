@@ -12,7 +12,7 @@ jobs:
           $jsonName = 'languages-ratio.json'
           $languageByteMap = @{}
           $sumByte = , 0
-          $headers = @{'Bearer' = '${{ secrets.GITHUB_TOKEN }}' }
+          $headers = @{'Bearer' = '${{ secrets.GITHUB_TOKEN }}'}
 
           Write-Host $headers.Bearer
           Write-Host $headers.Bearer.GetType().FullName
