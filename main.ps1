@@ -36,3 +36,6 @@ if (Test-Path $jsonName) {
         $currentJson | Out-File $jsonName
     }
 }
+else {
+    $currentJson | Out-File $jsonName
+}
