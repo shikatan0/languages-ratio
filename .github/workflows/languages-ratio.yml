@@ -34,12 +34,8 @@ jobs:
               }
             }
           }
-          $languageRatioMap = @{}
-          $languageByteMap.keys | & {
-            process {
-              $languageRatioMap.$_ = $languageByteMap.$_ / $sumByte[0] * 100
-            }
-          }
+          $languageRatioMap = [ordered]@{}
+          $languageByteMap.GetEnumerator() | Sort-Object -Property value -Descending | % {$languageRatioMap[$_.Key] = $_.value / $sumByte[0] * 100}
           $currentJson = $languageRatioMap | ConvertTo-JSON
           if (Test-Path $jsonName) {
             $beforeJson = Get-Content -Path $jsonName -Raw
