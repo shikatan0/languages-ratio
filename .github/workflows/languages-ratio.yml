@@ -1,7 +1,7 @@
 name: languages-ratio
 on:
   schedule:
-    - cron: "0 15 * * *"
+    - cron: "0 15,3 * * *"
   workflow_dispatch:
 jobs:
   main:
@@ -12,7 +12,7 @@ jobs:
           $jsonName = 'languages-ratio.json'
           $languageByteMap = @{}
           $sumByte = ,0
-          $headers = @{'Bearer' = '${{ secrets.GITHUB_TOKEN }}'}
+          $headers = @{'authorization' = 'Bearer ${{ secrets.GITHUB_TOKEN }}'}
           (Invoke-RestMethod -Uri https://api.github.com/users/shikatan0/repos -Headers $headers)
           | & {
             process {
